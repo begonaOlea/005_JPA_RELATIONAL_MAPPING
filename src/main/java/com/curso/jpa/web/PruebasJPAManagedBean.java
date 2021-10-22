@@ -35,4 +35,8 @@ public class PruebasJPAManagedBean {
          servicio.probarManyToOne();
      }
      
+     
+    public void btnPruebaManyToMany(){
+        servicio.probarManyToMany();
+    }
 }

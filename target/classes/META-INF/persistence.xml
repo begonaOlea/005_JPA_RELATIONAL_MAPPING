@@ -5,6 +5,8 @@
     <class>com.curso.jpa.entidades.Record</class>
     <class>com.curso.jpa.entidades.Customer</class>
     <class>com.curso.jpa.entidades.Orders</class>
+    <class>com.curso.jpa.entidades.Contacto</class>
+    <class>com.curso.jpa.entidades.Grupo</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/cursoDB"/>
       <property name="javax.persistence.jdbc.user" value="curso"/>
