@@ -27,4 +27,12 @@ public class PruebasJPAManagedBean {
     }
     
     
+     public void btnPruebaOneToOneFind(){
+        servicio.probarFindOneToOne();
+    }
+    
+     public void btnPruebaManyToOne(){
+         servicio.probarManyToOne();
+     }
+     
 }

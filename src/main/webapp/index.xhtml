@@ -8,7 +8,16 @@
     <h:body>
         
         <h:form>
-            <h:commandButton value="prueba OneToOne" action="#{pruebasJPAManagedBean.btnPruebaOneToOne()}" />
+            <h:panelGrid columns="1">
+                
+                 <h:commandButton value="prueba OneToOne" action="#{pruebasJPAManagedBean.btnPruebaOneToOne()}" />
+                 
+                 <h:commandButton value="prueba OneToOne find cliente 1" action="#{pruebasJPAManagedBean.btnPruebaOneToOneFind()}" />
+                
+                 <h:commandButton value="prueba ManyToOne grabar pedido en cliet 1" action="#{pruebasJPAManagedBean.btnPruebaManyToOne()}" />
+                
+            </h:panelGrid>
+           
         </h:form>
     </h:body>
 </html>

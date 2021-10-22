@@ -4,3 +4,4 @@ com/curso/jpa/persistencia/PruebasJPASessionBean.class
 com/curso/jpa/entidades/Record.class
 com/curso/jpa/resources/JavaEE8Resource.class
 com/curso/jpa/JAXRSConfiguration.class
+com/curso/jpa/entidades/Orders.class

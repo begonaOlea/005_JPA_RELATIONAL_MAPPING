@@ -1,10 +1,16 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.curso.jpa.entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,11 +18,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ *
+ * @author begonaolea
+ */
 @Entity
 @Table(name = "CUSTOMER")
 @NamedQueries({
@@ -31,27 +41,24 @@ public class Customer implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
+    @Size(max = 255)
     @Column(name = "CUSTOMER_NAME")
     private String customerName;
     
     
+    @OneToMany(mappedBy = "customer")
+    private Collection<Orders> ordersCollection;
+    
     @JoinColumn(name = "CUSTRECORD_RECID", referencedColumnName = "RECID")
-    @OneToOne 
+    @OneToOne (fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Record record;
+    
 
     public Customer() {
     }
 
     public Customer(Integer id) {
         this.id = id;
-    }
-
-    public Customer(Integer id, String customerName) {
-        this.id = id;
-        this.customerName = customerName;
     }
 
     public Integer getId() {
@@ -68,6 +75,14 @@ public class Customer implements Serializable {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public Collection<Orders> getOrdersCollection() {
+        return ordersCollection;
+    }
+
+    public void setOrdersCollection(Collection<Orders> ordersCollection) {
+        this.ordersCollection = ordersCollection;
     }
 
     public Record getRecord() {

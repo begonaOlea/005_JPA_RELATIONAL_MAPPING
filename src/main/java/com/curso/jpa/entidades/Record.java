@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.curso.jpa.entidades;
 
 import java.io.Serializable;
@@ -7,14 +10,16 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -30,29 +35,24 @@ import javax.validation.constraints.Size;
 public class Record implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "RECID")
     private Integer recid;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
+    @Size(max = 255)
     @Column(name = "RECORD_NAME")
     private String recordName;
     
+
+    @OneToOne(mappedBy="record")
+    private Customer customer;
 
     public Record() {
     }
 
     public Record(Integer recid) {
         this.recid = recid;
-    }
-
-    public Record(Integer recid, String recordName) {
-        this.recid = recid;
-        this.recordName = recordName;
     }
 
     public Integer getRecid() {
@@ -70,6 +70,17 @@ public class Record implements Serializable {
     public void setRecordName(String recordName) {
         this.recordName = recordName;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+   
+ 
 
     @Override
     public int hashCode() {
