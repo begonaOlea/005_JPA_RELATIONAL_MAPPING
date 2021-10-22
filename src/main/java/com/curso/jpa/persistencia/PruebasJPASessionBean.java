@@ -73,11 +73,11 @@ public class PruebasJPASessionBean {
         
         System.out.println("...... aqui probarManyToMany");
         
-       // Grupo grupo = new Grupo(null, "BLACK", "UUUUU"); 
-       // em.persist(grupo); //insert en tabla GRUPO 
-        
+//        Grupo grupo = new Grupo(null, "BLACK", "UUUUU"); 
+//        em.persist(grupo); //insert en tabla GRUPO 
+//        
        
-        Grupo grupo = em.find(Grupo.class, 1);
+       // Grupo grupo = em.find(Grupo.class, 1);
             
         Contacto luis2 = new Contacto(null, "Luis2", "RAmos", "lr", new Date());
         Contacto lorena2 = new Contacto(null, "Lorena2", "Lopez", "lo", new Date());
@@ -87,9 +87,12 @@ public class PruebasJPASessionBean {
         
         em.persist(luis2);     //insert en tabla CONTACTOS y tabla GRUPO_CONTACTO
         em.persist(lorena2);   // insert en tabla CONTACTOS  Y TABLA GRUPO_CONTACTO
-     
-    
+
+       //  grupo.getContactoSet().add(new Contacto(1));
+       //  grupo.getContactoSet().add(new Contacto(44)); //error
       
+    
+      //commit
     }
     
 }
