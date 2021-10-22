@@ -77,7 +77,7 @@ public class PruebasJPASessionBean {
 //        em.persist(grupo); //insert en tabla GRUPO 
 //        
        
-       // Grupo grupo = em.find(Grupo.class, 1);
+        Grupo grupo = em.find(Grupo.class, 1);
             
         Contacto luis2 = new Contacto(null, "Luis2", "RAmos", "lr", new Date());
         Contacto lorena2 = new Contacto(null, "Lorena2", "Lopez", "lo", new Date());
